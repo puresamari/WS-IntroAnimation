@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "roboto";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/roboto-regular.ttf") format("truetype"); }
+
+body {
+  font-family: 'roboto';
+  font-size: 50px; }
+
+.container {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+  -moz-transform: translate(-50%, -50%) rotate(0deg);
+  -ms-transform: translate(-50%, -50%) rotate(0deg);
+  -o-transform: translate(-50%, -50%) rotate(0deg);
+  transform: translate(-50%, -50%) rotate(0deg); }
+
+.logo {
+  height: inherit;
+  width: inherit;
+  -webkit-transform: rotate(0deg) scale(1);
+  -moz-transform: rotate(0deg) scale(1);
+  -ms-transform: rotate(0deg) scale(1);
+  -o-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -ms-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: all 2s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  -moz-transition: all 2s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  transition: all 2s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none; }
+  .logo.roll {
+    -webkit-transform: rotate(720deg) scale(1);
+    -moz-transform: rotate(720deg) scale(1);
+    -ms-transform: rotate(720deg) scale(1);
+    -o-transform: rotate(720deg) scale(1);
+    transform: rotate(720deg) scale(1); }
+  .logo.zoom {
+    -webkit-transition: all 1s cubic-bezier(0.88, 0, 0.94, 0.46);
+    -moz-transition: all 1s cubic-bezier(0.88, 0, 0.94, 0.46);
+    transition: all 1s cubic-bezier(0.88, 0, 0.94, 0.46);
+    -webkit-transform: rotate(720deg) scale(100);
+    -moz-transform: rotate(720deg) scale(100);
+    -ms-transform: rotate(720deg) scale(100);
+    -o-transform: rotate(720deg) scale(100);
+    transform: rotate(720deg) scale(100); }
+
+.text {
+  height: 0;
+  opacity: 1;
+  -webkit-transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  -moz-transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%; }
+  .text.hide {
+    opacity: 0;
+    z-index: 0; }
+
+.overlay {
+  background: #000;
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+  .overlay.show {
+    opacity: 1; }
+
+.letter {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  -moz-transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  opacity: 0;
+  width: 50px;
+  line-height: 1;
+  text-align: center; }
+  .letter.w {
+    margin-left: -25px;
+    left: -500px; }
+  .letter.s {
+    margin-left: 25px;
+    left: 500px; }
+  .together .letter {
+    opacity: 1;
+    left: 0; }
+
+#logo {
+  opacity: 0;
+  -webkit-transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  -moz-transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  transition: all 1s cubic-bezier(0.23, 0.68, 0.75, 0.39);
+  height: 100%;
+  width: 100%; }
+  #logo.show {
+    opacity: 1; }
