@@ -1,0 +1,84 @@
+$size : 50px;
+@mixin transitionNormal($length) {
+    @include transition(all (1s * $length) cubic-bezier(0.23, 0.68, 0.75, 0.39));
+}
+@mixin transitionSpec($length, $animation) {
+    @include transition(all (1s * $length) $animation);
+}
+
+body {
+    font-family: 'roboto';
+    font-size: $size;
+}
+
+.container {
+    @include size($size * 2);
+    @include position(absolute, 50% null null 50%);
+    @include transform(translate(-50%, -50%) rotate(0deg));
+}
+
+.logo{
+    @include size(inherit);
+    @include transform(rotate(0deg) scale(1));
+    @include transform-origin(center);
+    @include transitionNormal(2);
+    @include transform();
+    &.roll {
+        @include transform(rotate(720deg) scale(1));
+    }
+    &.zoom {
+        @include transitionSpec(1, cubic-bezier(0.88, 0, 0.94, 0.46));
+        @include transform(rotate(720deg) scale(100));
+    }
+}
+
+.text {
+    height: 0;
+    opacity: 1;
+    @include transitionNormal(1);
+    @include position(absolute, 50%);
+    &.hide {
+        opacity: 0;
+    }
+}
+
+.overlay {
+    background: #000;
+    opacity: 0;
+    @include transitionSpec(1, ease-in-out);
+    @include position(fixed, 0);
+    &.show {
+        opacity: 1;
+    }
+}
+
+.letter {
+    @include position(absolute);
+    @include transform(translate(-50%, -50%));
+    @include transitionNormal(1);
+    opacity: 0;
+    width: $size;
+    line-height: 1;
+    text-align: center;
+    &.w {
+        margin-left: -$size / 2;
+        left: -500px;
+    }
+    &.s {
+        margin-left: $size / 2;
+        left: 500px;
+    }
+    .together & {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+#logo {
+    opacity: 0;
+    @include transitionNormal(1);
+    @include size(100%);
+    &.show {
+        opacity: 1;
+    }
+}
